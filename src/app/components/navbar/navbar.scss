@@ -1,0 +1,105 @@
+$colorfill: #000;
+$colorfill2: #000;
+$burgerSize: 32px;
+$mainColor:#333;
+
+
+.burger {
+	display: inline-block;
+	width: $burgerSize * 1.2;
+	height: $burgerSize;
+	z-index: 100;
+	position: fixed;
+	left:16px;
+	margin:16px;
+	
+	span, span:before, span:after {
+		display: block;
+		width: 100%;
+		height: $burgerSize / 6;
+		background: $colorfill;
+		transition: all 0.5s;
+		backface-visibility: hidden;
+	}
+	
+	span {
+		position: relative;
+		margin: ($burgerSize * 2 / 5) 0 0;
+	}
+	
+	span:before, span:after {
+		position: absolute;
+		content: "";
+	}
+	
+	span:before {
+		top: $burgerSize * -2 / 5;  
+	}
+	
+	span:after {
+		top: $burgerSize * 2 / 5;
+	}
+}
+
+.burger.selected {
+	span, span:before, span:after {
+		background-color: $colorfill2;
+	}
+	span:before {
+		transform: translate(0px, ($burgerSize * 2 / 5)) rotate(-45deg);
+		background-color: $colorfill2;
+	}
+	span:after {
+		transform: translate(0px, -($burgerSize * 2 / 5)) rotate(45deg);
+	}
+	span {
+		background: transparent;
+	}
+}
+
+md-sidenav{
+	position: fixed;
+	width:100%;
+	min-width:300px;
+	max-width:100%;
+	md-content{
+		width: 100%;
+	}
+	ul{margin:80px 0 0 0; padding:0;}
+	li{
+		font-family: roboto;
+		text-transform: uppercase;
+		font-size: 1.2em;
+		margin: 0;
+		a{
+			color: $mainColor;
+			display: block;
+			padding:12px 24px;
+			text-decoration: none;
+			position: relative;
+			transition: background .3s;
+
+			&:hover,
+			&:active {
+				cursor: pointer;
+				background:#fafafa;
+				transition: background 1s;
+				&:after {
+					width: 16px;
+					transition: width .2s;
+				}
+			}
+
+			&:after {
+			content: '';
+			position: absolute;
+			left: 24px; bottom: 0px;
+			height: 2px;
+			background-color: $mainColor;
+			width: 0;
+			transition: width .1s;
+			}
+
+		}
+	}
+}
