@@ -22,32 +22,30 @@
 		return directive;
 		
 		/** @ngInject */
-		function NavbarController(moment, $scope, $mdSidenav, $timeout, $location, $anchorScroll) {
-			var vm = this;
-			// "vm.creation" is avaible by directive option "bindToController: true"
-			vm.relativeDate = moment(vm.creationDate).fromNow();
+		function NavbarController($scope, $mdSidenav, $timeout, $location, $anchorScroll, $log) {
 			$log.log('Controller : NavbarController');
 			
 			$scope.toggleMenu = function() {
-				angular.element('.burger').toggleClass('selected');
+				$log.log('toggleMenu');
+				$('.burger').toggleClass('selected');
 				$scope.removeFocus();
 				$mdSidenav('leftNav').toggle();
 			};
 			$scope.focus = function($card) {
-				angular.element('.burger').toggleClass('selected');
+				$('.burger').toggleClass('selected');
 				$scope.removeFocus();
 				$anchorScroll.yOffset = 100;
-      	$anchorScroll($card);
+      			$anchorScroll($card);
 				
 				$mdSidenav('leftNav').toggle();
 				$timeout(function () {
-					angular.element('#'+$card).addClass('active md-whiteframe-z4');
-					angular.element('#layer').addClass('active');
+					$('#'+$card).addClass('active md-whiteframe-z4');
+					$('#layer').addClass('active');
 				},200);
 			};
 			$scope.removeFocus = function() {
-				angular.element('md-card').removeClass('active md-whiteframe-z4');
-				angular.element('#layer').removeClass('active');
+				$('md-card').removeClass('active md-whiteframe-z4');
+				$('#layer').removeClass('active');
 			};
 		}
 	}

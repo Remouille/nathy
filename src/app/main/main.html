@@ -1,8 +1,11 @@
+<div ng-bind-html="glyphSVG('idea')"></div>
+
 <div layout="vertical" layout-fill>
 	<md-content>
 		<header layout="row">
-			<div layout-gt-md="row" flex-gt-sm=80 offset-gt-sm=10 flex-gt-lg=64 offset-gt-lg=18 layout-align="end top">
+			<div layout-gt-md="column" flex-gt-sm=80 offset-gt-sm=10 flex-gt-lg=64 offset-gt-lg=18 layout-align="end top">
 				<h1>Nathalie Odiot</h1>
+				<h2>Architecture d'intérieure</h2>
 			</div>
 			<navbar hide-sm/>
 		</header>
@@ -13,7 +16,57 @@
 
 
 <!-- Colonne de gauche -->
-					<div flex=60 flex-order=2 flex-order-gt-md=1>
+					<div flex=40  flex-order-gt-md=2>
+						<!-- Carte Contact -->
+						<md-card class="a-propos" id="a-propos" layout="row" flew-wrap>
+							<div flex=40 class="portrait"></div>
+							<div flex=68>
+								<h2>Nathalie Odiot</h2>
+								<h3>Paris - Saint Tropez</h3>
+								<p>The titles of Washed Out's breakthrough song and the first single from Paracosm share. The titles of Washed Out's breakthrough song and the first single from Paracosm share. The titles of Washed Out's breakthrough song and the first single from Paracosm share.</p>
+								<p><a href="mailto:contact@nathalieodiot.com" class="mail">contact@nathalieodiot.com</a></p>
+								<p>
+									<a class="tel" href="tel:+33-6-45-40-76-95">+33 6 45 40 76 95</a>
+									<md-button class="md-fab call" aria-label="Call" hide-gt-sm href="tel:+33-6-45-40-76-95">
+										<svg fill="#fff" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"> <path d="M0 0h24v24H0z" fill="none"/> <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/> </svg> 
+									</md-button>
+								</p>
+								<!-- <md-divider></md-divider> -->
+								<!-- 
+								<div class="highlight" layout="row">
+									<md-input-container flex=80>
+									  <label>Votre téléphone pour être rappelé</label>
+									  <input type="text" ng-model="user.phone">
+									</md-input-container>
+									<md-button flex=20 class="callback" aria-label="Call Back" hide-sm >
+										<svg  fill="#3F51B5" height="32" width="32" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
+										    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+										    <path d="M0 0h24v24H0z" fill="none"/>
+										</svg>
+									</md-button>
+								</div>
+								-->
+							</div>
+						</md-card>
+						<!-- Carte des Actualités -->
+						<md-card class="actus" id="actus">
+							<h2>Actualité</h2>
+							<md-card-content>
+							<md-list>
+								<md-list-item class="md-2-line" ng-repeat="tile in news">
+								<img ng-src="{{tile.image}}" alt="{{tile.title}}"/>
+									<div class="md-list-item-text">
+										<h3>{{tile.title}}</h3>
+										<p>{{tile.desc}}</p>
+										<p><a href="{{tile.link}}">En savoir plus</a></p>
+									</div>
+								</md-list-item>
+							</md-card-content>
+						</md-card>
+					</div>
+
+<!-- Colonne de droite -->
+					<div flex=60  flex-order-gt-md=1>
 						<!-- Carte Services -->
 						<md-card class="services" id="services">
 							<h2>Mes services</h2>
@@ -35,51 +88,21 @@
 							<h2>Philosophie & Réalisations</h2>
 							<md-card-content>	
 								<md-grid-list md-cols-sm="2" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="12px" >
-									<md-grid-tile ng-class="" md-ink-ripple ng-repeat="tile in philos">
-										<img ng-src="{{tile.image}}" alt="{{tile.title}}" />
-										<md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+									<md-grid-tile ng-class="realisation" ng-repeat="tile in philos" ng-click="showAdvanced($event, $index)">
+											<img ng-src="{{tile.thumb}}" alt="{{tile.title}}" />
+											<md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
 									</md-grid-tile>
 								</md-grid-list>
 							</md-card-content>
 						</md-card>
-
 					</div>
 
-
-<!-- Colonne de droite -->
-					<div flex=40 flex-order=1 flex-order-gt-md=2>
-						<!-- Carte Contact -->
-						<md-card class="a-propos" id="a-propos" layout="row" flew-wrap>
-							<div flex=40 class="portrait"></div>
-							<div flex=68>
-								<h2>Nathalie Odiot</h2>
-								<p>Paris - Saint Tropez</p>
-								<p>The titles of Washed Out's breakthrough song and the first single from Paracosm share. The titles of Washed Out's breakthrough song and the first single from Paracosm share. The titles of Washed Out's breakthrough song and the first single from Paracosm share.</p>
-								<p><a href="mailto:contact@nathalieodiot.com">contact@nathalieodiot.com</a></p>
-								<p><a href="tel:+33-6-45-40-76-95">+33 6 45 40 76 95</a></p>
-							</div>
-						</md-card>
-						<!-- Carte des Actualités -->
-						<md-card class="actus" id="actus">
-							<h2>Actualité</h2>
-							<md-card-content>
-							<md-list>
-								<md-list-item class="md-2-line" ng-repeat="tile in news">
-								<img ng-src="{{tile.image}}" alt="{{tile.title}}"/>
-									<div class="md-list-item-text">
-										<h3>{{tile.title}}</h3>
-										<p>{{tile.desc}}</p>
-										<p><a href="{{tile.link}}">En savoir plus</a></p>
-									</div>
-								</md-list-item>
-							</md-card-content>
-						</md-card>
-					</div>
 					
 				</div>
 			</div>
 			<div id="layer" ng-click="removeFocus()"></div>
 
 	</md-content>
+
 
 </div>
