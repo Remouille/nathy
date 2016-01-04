@@ -5,10 +5,10 @@
 // bower:scss
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+@import url("http://fonts.googleapis.com/css?family=Roboto:100, 200, 700");
 
 html {
-	font-family: 'Roboto', serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 [layout=row] {
@@ -22,35 +22,95 @@ html {
 
 
 header {
-	background: #424242 url('/assets/images/bg9.jpg') center fixed ;
+	background: #fafafa url('/assets/images/bg9.jpg') center fixed ;
+	// background-color: #C0CA33; 
 	background-size: cover;
-	
 	height: 500px;
 	padding: 16px;
-	h1 {
+	.h1 {
 		width: 100%;
 		text-align: right;
 		font-size: 4.6em;
-		font-family: Roboto;
+		font-family: 'Roboto', sans-serif;
 		font-weight: 700;
-		margin: 20px 0 0 0;
+		margin: 4px 0 0 0;
 		text-transform: uppercase;
+		@media screen and (max-width: '460px'){
+			font-size:3em;
+		}
 	}
-	h2{
+	.h2{
 		text-align: right;
-		font-family: Roboto;
+		font-family: 'Roboto', sans-serif;
 		font-size: 1.6em;
 		font-weight: 200;
 		margin: 0;
 		text-transform: uppercase;
+		@media screen and (max-width: '460px'){
+			font-size:1em;	    
+		}
 	}
+	.loader{
+		text-align: center;
+	}
+
+.spinner {
+  margin: 16px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+
 }
 
 
 .content{
 	position:relative;
 	top:-100px;
-
+	width:100%;
 }
 
 
@@ -60,8 +120,8 @@ md-card {
 		width: 40px;
 	}
 	h2{
-		font-family: Roboto;
-		font-weight: 100;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 200;
 		text-transform: uppercase;
 		margin:0;
 		padding:24px 32px 20px 32px;
@@ -75,6 +135,13 @@ md-card {
 		}
 		md-list{
 			padding:0;
+			p{
+				line-height: 1.2em !important;
+			}
+		}
+		.icons-svg{
+			width:56px; height:56px;
+			margin: 12px 20px 0 0;
 		}
 	}
 	&.a-propos{
@@ -82,6 +149,8 @@ md-card {
 			background: url('/assets/images/nathalie-portrait.jpg') center center;
 			background-size:cover;
 			max-width:200px;
+			border-top-left-radius:2px;
+			border-bottom-left-radius:2px;
 		}
 		min-height:300px;
 		h2{
@@ -104,7 +173,7 @@ md-card {
 			&.tel{
 				text-decoration: none;
 				font-size: 16px;
-				font-family: Roboto Slab;
+				font-family: 'Roboto', sans-serif;
 			}	
 		}
 		.md-button.call{
@@ -155,9 +224,9 @@ md-card {
 			background: rgba(0, 0, 0, 0.3);
 			h3{
 				line-height: 1.2em;
-			    font-size: 0.9em;
-			    margin-left: 8px;
-			    margin-right: 4px;
+				font-size: 0.9em;
+				margin-left: 8px;
+				margin-right: 4px;
 			}
 		}
 	}
@@ -173,9 +242,9 @@ md-card {
   z-index: -1;
   transition: all 0.4s;
   &.active{
-  	transition: all 1s;
-  	z-index: 50;
-  	background: rgba(0,0,0,0.2);
+	transition: all 1s;
+	z-index: 50;
+	background: rgba(0,0,0,0.2);
   }
 }
 
@@ -191,12 +260,43 @@ md-card {
 	margin:16px 16px 16px 0;
 }
 
+
+
+
+
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
  */
 // injector
 // endinjector
+
+
+.ng-enter{
+	animation: transitionPages 0.6s both ease;
+	z-index: 9998;
+}
+.ng-leave{ 
+	// animation: transitionPagesLeave 3s both ease-in;
+	z-index: 9999;
+}
+
+
+/* ANIMATIONS
+============================================================================= */
+
+/* leaving animations ----------------------------------------- */
+/* rotate and fall */
+@keyframes transitionPages {
+	0%      { opacity:0; transform: scale(0.8);}
+	60%     { transform: scale(1)}
+	100%    { opacity:1}
+}
+
+
+
+
+
 
 md-dialog{
 	max-width: 100%;

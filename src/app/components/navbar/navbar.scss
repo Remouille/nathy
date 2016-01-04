@@ -11,7 +11,9 @@ $mainColor:#333;
 	z-index: 100;
 	position: fixed;
 	left:16px;
-	margin:16px;
+	cursor:pointer;
+	background-color:rgba(255,255,255,0.7);
+	padding:18px;
 	
 	span, span:before, span:after {
 		display: block;
@@ -78,7 +80,6 @@ md-sidenav{
 			text-decoration: none;
 			position: relative;
 			transition: background .3s;
-
 			&:hover,
 			&:active {
 				cursor: pointer;
@@ -94,12 +95,12 @@ md-sidenav{
 			content: '';
 			position: absolute;
 			left: 24px; bottom: 0px;
-			height: 2px;
+			// height: 2px;
 			background-color: $mainColor;
 			width: 0;
 			transition: width .1s;
 			}
-
 		}
+
 	}
 }

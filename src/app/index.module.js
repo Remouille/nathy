@@ -2,6 +2,5 @@
   'use strict';
 
   angular
-    .module('nathy', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngResource', 'ui.router', 'ngMaterial']);
-
+    .module('nathy', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngResource', 'ui.router', 'ngMaterial', 'ngRetina']);
 })();

@@ -1,21 +1,8 @@
-<div ng-bind-html="glyphSVG('idea')"></div>
-
-<div layout="vertical" layout-fill>
-	<md-content>
-		<header layout="row">
-			<div layout-gt-md="column" flex-gt-sm=80 offset-gt-sm=10 flex-gt-lg=64 offset-gt-lg=18 layout-align="end top">
-				<h1>Nathalie Odiot</h1>
-				<h2>Architecture d'intérieure</h2>
-			</div>
-			<navbar hide-sm/>
-		</header>
 
 
 			<div layout="row" class="content" >
 				<div layout-gt-md="row" flex-gt-sm=80 offset-gt-sm=10 flex-gt-lg=64 offset-gt-lg=18 flex-wrap>
-
-
-<!-- Colonne de gauche -->
+<!-- Colonne de droite -->
 					<div flex=40  flex-order-gt-md=2>
 						<!-- Carte Contact -->
 						<md-card class="a-propos" id="a-propos" layout="row" flew-wrap>
@@ -65,15 +52,15 @@
 						</md-card>
 					</div>
 
-<!-- Colonne de droite -->
+<!-- Colonne de gauche -->
 					<div flex=60  flex-order-gt-md=1>
 						<!-- Carte Services -->
 						<md-card class="services" id="services">
-							<h2>Mes services</h2>
+							<h2 >Nos services</h2>
 							<md-card-content>
 							<md-list>
-								<md-list-item class="md-2-line" ng-repeat="tile in services">
-								<img ng-src="{{tile.image}}" class="md-avatar" alt="{{tile.title}}"/>
+								<md-list-item class="md-2-line" ng-repeat="tile in services" ng-click="link(tile.link)">
+									<svg  xmlns="http://www.w3.org/2000/svg" class="icons-svg" viewBox="0 0 64 64" ng-bind-html="tile.image"></svg>
 									<div class="md-list-item-text">
 										<h3>{{tile.title}}</h3>
 										<p>{{tile.desc}}</p>
@@ -102,7 +89,3 @@
 			</div>
 			<div id="layer" ng-click="removeFocus()"></div>
 
-	</md-content>
-
-
-</div>

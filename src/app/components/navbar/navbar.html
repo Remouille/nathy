@@ -1,11 +1,12 @@
-<a class="burger" href="#" ng-click="toggleMenu()" ng-class="classMenu"><span></span></a>
+<a class="burger" ng-click="toggleMenu()" ng-class="classMenu"><span></span></a>
 
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="leftNav">
 	<md-content>
 		<ul>
-			<li><a md-ink-ripple ng-click="focus('services')" >Services</a></li>
+			<li><a md-ink-ripple ng-click="link('')" ><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16" width="14"><polygon style="fill:#030104;" points="8,0 0,8 2,8 2,16 6,16 6,10 10,10 10,16 14,16 14,8 16,8"/></svg> Accueil</a></li>
+			<li><a md-ink-ripple ng-click="focus('services')" >Services</a> </li>
 			<li><a md-ink-ripple ng-click="focus('philo')">Philosophie</a></li>
-			<li><a md-ink-ripple ng-click="focus('actus')">Actualités</a></li>
+			<li><a md-ink-ripple ng-click="link('interieur')">Actualités</a></li>
 			<li><a md-ink-ripple ng-click="focus('a-propos')">Contact</a></li>
 		</ul>
 	</md-content>

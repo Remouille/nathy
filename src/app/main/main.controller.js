@@ -6,16 +6,12 @@
 		.controller('MainController', MainController);
 
 	/** @ngInject */
-	function MainController($timeout, $log, $scope, $mdDialog) {
+	function MainController($timeout, $log, $scope, $mdDialog, $location) {
 		
 		$log.log('Controller : MainController');
+		window.scrollTo(0,0);
 
-
-		$scope.removeFocus = function() {
-			$('md-card').removeClass('active md-whiteframe-z4');
-			$('#layer').removeClass('active');
-		};
-
+		
 		$scope.philos = [
 			{ title: 'Un style de vie, un dessin',
 			  thumb: '/assets/images/suissa.jpg',
@@ -77,10 +73,10 @@
 		];
 
 		$scope.news = [
-			{ title: 'Petit titre', 
-				desc: 'The titles of Washed Out\'s breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene\'s musical language: feel it.',
+			{ title: 'Un second projet au Plan-de-la-Tour', 
+				desc: 'Le studio vient de signer une seconde maison sur la commune du Plan-de-la-Tour. Le dessin est résolument moderne, tout en respectant son environnement, et les contraintes du PLU.',
 				image: '/assets/images/actu1.jpg',
-				link:'#'
+				link:'#interieur'
 			},
 			{ title: 'Mon super titre',
 				desc: 'breakthrough song and the first single from Paracosm share the two most important words in Ernest',
@@ -96,21 +92,30 @@
 		];
 
 		$scope.services = [
-			{ title: 'Consulting lors d\'une acquisition immobilière', 
-				desc: 'Vous souhaitez avoir l\'avis d\'un professionnel lors d\'une acquisition, pour vous aider à imaginer comment tirer pleinement parti du bien, et des maitriser les coûts des travaux.',
-				image: '/assets/images/Glyphs1.jpg'
+			{ title: 'Architecture d\'intérieur', 
+				desc: 'Le studio vous accompagne sur vos projets d’aménagement et de rénovation de votre habitation : de l’étude (plans, choix des matériaux, devis) à la réalisation (suivi des travaux, choix du mobilier, décoration).',
+				image: '<polygon style="fill: #1d1d1b;" points="12 8 6 8 6 50 6 56 42 56 48 56 48 26 48 20 24 20 18 20 18 38 18 44 24 44 30 44 36 44 36 38 36 32 30 32 30 38 24 38 24 26 42 26 42 50 12 50 12 14 54 14 54 56 60 56 60 14 60 8 12 8"/>',
+				link:'interieur'
 			},
-			{ title: 'Personnal shopper',
-				desc: 'Vous souhaitez redécorer votre intérieur et vous .... breakthrough song and the first single from Paracosm share the two most important words in Ernest',
-				image: '/assets/images/Glyphs2.jpg'
+			{ title: 'Architecture maison de bois',
+				desc: 'En partenariat avec la société PWH, le Studio vous accompagne de la conception, au dépôt de permis de construire, jusqu’à la remise des clés. Une maison en bois sur mesure, calquée sur votre style de vie.',
+				image: '<path d="M32,8L4,56H60ZM30,52H12.6l8.7-15.2m2.8-6,7.7-13.5L51.4,52H36" style="fill: #1d1d1b"/>',
+				link:'bois'
 			},
-			{ title: 'Bonjour Bonjour',
-				desc: 'Song and the first single from Paracosm share the two most important words in Ernest',
-				image: '/assets/images/Glyphs3.jpg'
+			{ title: 'Architecture commerciale',
+				desc: 'Bénéficiez de l’expérience du Studio en matière de restaurants, boites de nuits, plages, hotels et bureaux.',
+				image: '<path style="fill: #1d1d1b" d="M32,6A26,26,0,1,0,58,32,26,26,0,0,0,32,6Zm0,48A22,22,0,1,1,54,32,22,22,0,0,1,32,54Z"/> <rect style="fill: #1d1d1b" x="30" y="30" width="4" height="26" rx="2" ry="2"/> <path style="fill: #1d1d1b" d="M32,16a16,16,0,0,0-8,29.8V40.9a12,12,0,1,1,16,0v4.9A16,16,0,0,0,32,16Z"/> ',
+				link:'commercial'
 			},
-			{ title: 'Bonjour Bonjour',
-				desc: 'Song and the first single from Paracosm share the two most important words in Ernest',
-				image: '/assets/images/Glyphs4.jpg'
+			{ title: 'Outdoor', 
+				desc: 'Le studio vous accompagne dans la conception, la décoration, de vos espaces outdoor. Choix du mobilier création d’ambiances décoratives, éclairage. En partenariat avec notre paysagiste, nous dessinons vos espaces extérieurs.',
+				image: '<polyline points="51.3 49.1 13.9 49.1 13.9 11.9 51.1 11.9 51.1 55 57 55 57 6 8 6 8 55 52 55"/> <rect x="30.1" y="18.1" width="5.1" height="24.5"/> <rect x="20.2" y="28" width="24.5" height="5.1" transform="translate(-10.9 20.2) rotate(-29.9)"/> <rect x="29.9" y="18.3" width="5.1" height="24.5" transform="translate(-10.1 43.8) rotate(-60.7)"/>',
+				link:'outdoor'
+			},
+			{ title: 'Les autres services',
+				desc: 'Le studio est présent pour vous aider dans des choix de mobiliers, orientations esthétiques et ambiances couleurs et même pour lors d\'une acquisition immobilière.',
+				image: '<path style="fill: #1d1d1b" d="M32,8L4.1,56h56ZM52,52H34V36h9.1ZM40.9,32H23.1L32,16Zm-20,4H30V52H12Z"/>',
+				link:'deco'
 			}
 		];
 
@@ -148,7 +153,6 @@
 				template: $scope.modCtt,
 				parent: angular.element(document.body),
 				targetEvent: ev,
-				onRemoving : showDialog(),
 				clickOutsideToClose:true
 			})
 			.then(function(answer) {
@@ -158,10 +162,10 @@
 			});
 		  };
 
-		function showDialog () {
-			$('navbar').hide();
-		}
-
+		$scope.removeFocus = function() {
+			$('md-card').removeClass('active md-whiteframe-z4');
+			$('#layer').removeClass('active');
+		};
 
 		function DialogController($scope, $mdDialog) {
 			$scope.closeDialog = function() {
@@ -169,6 +173,9 @@
 				$('navbar').show();
 			};
 		}
+		$scope.link = function($page) {
+			$location.path($page);
+		};
 
 	}
 })();

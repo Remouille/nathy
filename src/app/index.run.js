@@ -5,10 +5,9 @@
     .module('nathy')
     .run(runBlock);
 
-  /** @ngInject */
-  function runBlock($log) {
-
-    $log.debug('runBlock end');
-  }
+	/** @ngInject */
+	function runBlock($log) {
+		$log.debug('runBlock end');
+	}
 
 })();
