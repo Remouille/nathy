@@ -4,7 +4,9 @@ var path = require('path');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var ftp = require('gulp-ftp');
+var uncss = require('gulp-uncss');
 var conf = require('./conf');
+var requirejsOptimize = require('gulp-requirejs-optimize');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -92,8 +94,14 @@ gulp.task('clean', function (done) {
   $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')], done);
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('optim', function () {
+  return gulp.src('dist/styles/*.css').pipe(uncss({
+            html: ['http://localhost:3000/']
+        }))
+        .pipe(gulp.dest('./dist/out'));
+});
 
+gulp.task('build', ['html', 'fonts', 'other']);
 
  
 gulp.task('deploy', function () {

@@ -1,0 +1,20 @@
+				<div class="pages" >
+					<div class="column">
+						<h1>Un corps dans l'espace architectural</h1>
+						<p>L'architecture d'intérieur est là pour répondre à un besoin spécifique d'ergonomie et d'usage.</p>
+						<p>Un espace doit être en équilibre entre fonction, confort et esthétique. Le dessin en plan est la traduction de ces trois éléments fondamentaux répondant au cas particulier de chaque projet: hôtel, maison familiale, club...</p>
+					</div>
+				</div>
+
+	<md-grid-list
+		md-cols="1" md-cols-md="2" md-cols-gt-md="3"
+		md-row-height="16:10"
+		md-gutter="4px">
+	<md-grid-tile ng-repeat="tile in style" md-rowspan-xs="1" md-colspan-xs="1"
+				  md-rowspan-gt-sm="{{tile.row}}" 
+				  md-colspan-gt-sm="{{tile.col}}">
+			<img ng-src="{{tile.img}}.jpg" alt="{{tile.title}}" ng-srcset="{{tile.img}}.jpg 400w, {{tile.img}}@2x.jpg  1400,{{tile.img}}@3x.jpg"
+								 ng-click="showPic($event, $index)">
+			<md-grid-tile-footer><h4>{{tile.title}}</h4></md-grid-tile-footer>
+	</md-grid-tile>
+	</md-grid-list>

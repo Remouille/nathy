@@ -1,16 +1,54 @@
-
-
 			<div layout="row" class="content" >
 				<div layout-gt-md="row" flex-gt-sm=80 offset-gt-sm=10 flex-gt-lg=64 offset-gt-lg=18 flex-wrap>
+
+<!-- Colonne de gauche -->
+					<div flex=60 flex-order=2 layout="column">
+						<!-- Carte Services -->
+						<md-card class="services" id="services" flex-order=1>
+							<h2>Nos services</h2>
+							<md-card-content>
+							<md-list>
+								<md-list-item class="md-2-line" ng-repeat="tile in services" ng-click="link(tile.link)">
+									
+									<!-- <img ng-src="{{tile.img}}"> -->
+									<svg  xmlns="http://www.w3.org/2000/svg" class="icons-svg" viewBox="0 0 64 64" ng-bind-html="tile.image"></svg>
+									<div class="md-list-item-text">
+										<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="arrow" viewBox="0 0 612 612" >
+											<path d="M325.4 0.3h-57.9L554.1 306 267.5 611.7h57.9L612 306 325.4 0.3zM57.9 0.3H0L286.6 306 0 611.7h57.9L344.5 306 57.9 0.3z" fill="#d4d4d4"/>
+										</svg>
+										<h3>{{tile.title}}</h3>
+										<p>{{tile.desc}}</p>
+										<!-- <md-button class="md-raised" style="float:right"> En savoir plus </md-button> -->
+									</div>
+								</md-list-item>
+							</md-list>
+							</md-card-content>
+						</md-card> 
+						<!-- Carte Philosophie -->
+						<md-card class="philo" id="philo" flex-order=2>
+							<h2>Philosophie & Réalisations</h2>
+							<md-card-content>	
+								<md-grid-list md-cols-sm="2" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="12px" >
+									<md-grid-tile ng-class="realisation" ng-repeat="tile in philos" ng-click="link(tile.link)">
+											<img ng-src="{{tile.thumb}}" alt="{{tile.title}}" />
+											<md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+									</md-grid-tile>
+								</md-grid-list>
+							</md-card-content>
+						</md-card>
+
+					</div>
 <!-- Colonne de droite -->
-					<div flex=40  flex-order-gt-md=2>
+					<div flex=40 flex-order=2>
 						<!-- Carte Contact -->
 						<md-card class="a-propos" id="a-propos" layout="row" flew-wrap>
 							<div flex=40 class="portrait"></div>
 							<div flex=68>
 								<h2>Nathalie Odiot</h2>
 								<h3>Paris - Saint Tropez</h3>
-								<p>The titles of Washed Out's breakthrough song and the first single from Paracosm share. The titles of Washed Out's breakthrough song and the first single from Paracosm share. The titles of Washed Out's breakthrough song and the first single from Paracosm share.</p>
+								<p>
+									10 ans d'expérience au service des particuliers, et des professionnels. Le studio dessine des projets sur-mesure autour de votre mode de vie et en fonction de vos besoins.</p>
+								<p>Contactez-nous pour un premier échange sur votre projet.</p>
 								<p><a href="mailto:contact@nathalieodiot.com" class="mail">contact@nathalieodiot.com</a></p>
 								<p>
 									<a class="tel" href="tel:+33-6-45-40-76-95">+33 6 45 40 76 95</a>
@@ -45,45 +83,12 @@
 									<div class="md-list-item-text">
 										<h3>{{tile.title}}</h3>
 										<p>{{tile.desc}}</p>
-										<p><a href="{{tile.link}}">En savoir plus</a></p>
+										<!-- <p><a href="{{tile.link}}">En savoir plus</a></p> -->
 									</div>
 								</md-list-item>
 							</md-card-content>
 						</md-card>
 					</div>
-
-<!-- Colonne de gauche -->
-					<div flex=60  flex-order-gt-md=1>
-						<!-- Carte Services -->
-						<md-card class="services" id="services">
-							<h2 >Nos services</h2>
-							<md-card-content>
-							<md-list>
-								<md-list-item class="md-2-line" ng-repeat="tile in services" ng-click="link(tile.link)">
-									<svg  xmlns="http://www.w3.org/2000/svg" class="icons-svg" viewBox="0 0 64 64" ng-bind-html="tile.image"></svg>
-									<div class="md-list-item-text">
-										<h3>{{tile.title}}</h3>
-										<p>{{tile.desc}}</p>
-									</div>
-								</md-list-item>
-							</md-list>
-							</md-card-content>
-						</md-card> 
-
-						<!-- Carte Philosophie -->
-						<md-card class="philo" id="philo">
-							<h2>Philosophie & Réalisations</h2>
-							<md-card-content>	
-								<md-grid-list md-cols-sm="2" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="12px" >
-									<md-grid-tile ng-class="realisation" ng-repeat="tile in philos" ng-click="showAdvanced($event, $index)">
-											<img ng-src="{{tile.thumb}}" alt="{{tile.title}}" />
-											<md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
-									</md-grid-tile>
-								</md-grid-list>
-							</md-card-content>
-						</md-card>
-					</div>
-
 					
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 <html ng-app="nathy">
   <head>
 	<meta charset="utf-8">
-	<title>Nathalie Odiot</title>
+	<title state-title="Nathalie Odiot - Architecture d'interieurs"></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,7 +19,7 @@
 	<!-- endinject -->
 	<!-- endbuild -->
   </head>
-  <body>
+  <body ng-app="nathy">
 	<!--[if lt IE 10]>
 	  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -28,7 +28,24 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-S844');</script> 
 	<!-- End Google Tag Manager -->
 
+<div layout="row" >
+	<md-content>
+		<header layout="row">
+			<div layout-gt-md="column" offset-xs=20 flex-xs=80 offset-xm=10 flex-sm=90 flex-gt-sm=80 offset-gt-sm=10 flex-gt-lg=64 offset-gt-lg=18 layout-align="end top">
+				<div class="h1">Nathalie Odiot</div>
+				<div class="h2">Architecture d'intérieurs</div>
+
+				<div class="spinner loader">
+					<div class="dot1"></div>
+					<div class="dot2"></div>
+				</div>
+			</div>
+			<navbar />
+		</header>
 	<div ui-view></div>
+	<hr>
+	</md-content>
+</div>
 
 	<!-- build:js(src) scripts/vendor.js -->
 	<!-- bower:js -->

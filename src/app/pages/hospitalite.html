@@ -1,0 +1,35 @@
+				<div class="pages" >
+					<div class="column">
+						<h1>Hôtels, Clubs, Bars, Restaurants</h1>
+						<p>Vous êtes propriétaire d'un hôtel, d'un restaurant, d’un club et vous souhaitez renouveler ou rénover le lieu, le studio pourra vous accompagner du concept jusqu'à son inauguration.</p>
+						<p>Nathalie Odiot a pu collaborer avec de grands noms de l’architecture sur de nombreux projets de renommées internationale. Ces expériences ont permis au studio d'accéder à la création de projets d’envergure.</p>
+						<p>Ayant la connaissance des contraintes, auxquelles les restaurateurs ou les hôteliers sont confrontés, le studio sait être force de propositions, pour des concepts novateurs répondant aux besoins d’une clientèle exigeante et sans cesse en quête de nouvelles expériences.</p>
+						<p>Le studio reste constamment à la recherche des dernières tendances inscrivant des projets dans un élan marketing novateur.</p>
+						<p>Une nouvelle façon de servir,  d'héberger, un autre regard sur l’architecture existante du lieu, créera une vraie différence. </p>
+						<p>Pour la mise en place et déploiement du projet, se référer à <a href="#interieur">l’article "Architecture d’intérieur"</a></p>
+
+						<h2>Où pouvez-vous voir le travail de Nathalie Odiot ?</h2>
+						<ul>
+							<li>Le Mas D'estel à Saint Aygulf <em>- 2015</em></li>
+							<li>Le Silencio Paris <em>en collaboration avec David Lynch et ENIA - 2011</em></li>
+							<li>La Palais de Namaskar à Marrakech <em>en collaboration avec Imaad Rahmouni - 2007</em></li>
+							<li>Sofitel Faubourg à Paris <em>en collaboration avec Didier Gomez - 2012</em></li>
+							<li>Conrad Ressort à Algarve<em>en collaboration avec MCM Design</em></li>
+							<li>Tour TOTAL à Lagos <em>en collaboration avec ENIA - 2011</em></li>
+						</ul>
+
+					</div>
+				</div>
+
+  <md-grid-list
+		md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4"
+		md-row-height="16:10"
+		md-gutter="4px" >
+	<md-grid-tile ng-repeat="tile in hospitality"
+				  md-rowspan="{{tile.row}}"
+				  md-colspan="{{tile.col}}">
+			<img ng-src="{{tile.img}}_th.jpg" alt="{{tile.title}}" ng-srcset="{{tile.img}}_th.jpg 500w, {{tile.img}}.jpg"
+								 ng-click="showPic($event, $index)">
+			<md-grid-tile-footer><h4>{{tile.title}}</h4></md-grid-tile-footer>
+	</md-grid-tile>
+  </md-grid-list>

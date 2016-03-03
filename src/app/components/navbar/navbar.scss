@@ -8,7 +8,7 @@ $mainColor:#333;
 	display: inline-block;
 	width: $burgerSize * 1.2;
 	height: $burgerSize;
-	z-index: 100;
+	z-index: 80;
 	position: fixed;
 	left:16px;
 	cursor:pointer;
@@ -91,16 +91,26 @@ md-sidenav{
 				}
 			}
 
-			&:after {
-			content: '';
-			position: absolute;
-			left: 24px; bottom: 0px;
-			// height: 2px;
-			background-color: $mainColor;
-			width: 0;
-			transition: width .1s;
-			}
 		}
 
+	}
+
+	#contactcontent{
+		ul{
+			margin: 20px 0 0 24px;
+		}
+		li{display:inline-block; width:30px; height:30px; margin-right:4px; }
+		li a{text-indent:-9999px; display:inline-block; width:30px; height:30px;
+			background: none;
+			&:hover, &:active{background:none;}
+		}
+		#pinterest{ background:url('/assets/images/sprite.gif') 0px 0px; }
+		#linkedin{ background:url('/assets/images/sprite.gif') -40px 0px; }
+		#google{ background:url('/assets/images/sprite.gif') -120px 0px;}
+		#facebook{ background:url('/assets/images/sprite.gif') -80px 0px;}
+		#pinterest:hover{background:url('/assets/images/sprite.gif') 0px -30px; }
+		#linkedin:hover{background:url('/assets/images/sprite.gif') -40px -30px; }
+		#google:hover{background:url('/assets/images/sprite.gif') -120px -30px;}
+		#facebook:hover{background:url('/assets/images/sprite.gif') -80px -30px;}
 	}
 }
