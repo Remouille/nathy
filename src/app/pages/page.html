@@ -1,0 +1,18 @@
+				<div class="pages" >
+					<div class="column" ng-include="pageCtt">
+
+					</div>
+				</div>
+
+				<md-grid-list
+					md-cols="1" md-cols-md="2" md-cols-gt-md="3"
+					md-row-height="16:11"
+					md-gutter="4px">
+					<md-grid-tile ng-repeat="tile in imgs" md-colspan-sm="1" md-rowspan-sm="{{tile.row/tile.col}}"
+								  md-rowspan-gt-sm="{{tile.row}}" 
+								  md-colspan-gt-sm="{{tile.col}}"
+								  ng-click="showPic($event, $index, 'style')">
+							<img ng-src="{{tile.img}}.jpg" alt="{{tile.title}}" ng-srcset="{{tile.img}}.jpg 400w, {{tile.img}}@2x.jpg  1400,{{tile.img}}@3x.jpg">
+							<md-grid-tile-footer><h4>{{tile.title}}</h4></md-grid-tile-footer>
+					</md-grid-tile>
+				</md-grid-list>

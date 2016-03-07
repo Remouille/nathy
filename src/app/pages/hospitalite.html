@@ -1,5 +1,3 @@
-				<div class="pages" >
-					<div class="column">
 						<h1>Hôtels, Clubs, Bars, Restaurants</h1>
 						<p>Vous êtes propriétaire d'un hôtel, d'un restaurant, d’un club et vous souhaitez renouveler ou rénover le lieu, le studio pourra vous accompagner du concept jusqu'à son inauguration.</p>
 						<p>Nathalie Odiot a pu collaborer avec de grands noms de l’architecture sur de nombreux projets de renommées internationale. Ces expériences ont permis au studio d'accéder à la création de projets d’envergure.</p>
@@ -17,19 +15,3 @@
 							<li>Conrad Ressort à Algarve<em>en collaboration avec MCM Design</em></li>
 							<li>Tour TOTAL à Lagos <em>en collaboration avec ENIA - 2011</em></li>
 						</ul>
-
-					</div>
-				</div>
-
-  <md-grid-list
-		md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4"
-		md-row-height="16:10"
-		md-gutter="4px" >
-	<md-grid-tile ng-repeat="tile in hospitality"
-				  md-rowspan="{{tile.row}}"
-				  md-colspan="{{tile.col}}">
-			<img ng-src="{{tile.img}}_th.jpg" alt="{{tile.title}}" ng-srcset="{{tile.img}}_th.jpg 500w, {{tile.img}}.jpg"
-								 ng-click="showPic($event, $index)">
-			<md-grid-tile-footer><h4>{{tile.title}}</h4></md-grid-tile-footer>
-	</md-grid-tile>
-  </md-grid-list>

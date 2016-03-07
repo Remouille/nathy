@@ -10,6 +10,8 @@
     "angular-material": "~0.9.7",
     "jquery": ">=1.6.3",
     "ng-page-title":"1.1.1",
+    "angular-carousel":"1.0.1",
+    "angular-touch":"~1.5.1",
     "angulargrid":"0.4.0",
     "angular": "~1.4.0"
   },

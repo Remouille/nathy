@@ -58,51 +58,63 @@
 	            }
 			}).state('philo1', {
 				url: '/un-dessin-par-style-de-vie',
-				templateUrl: 'app/pages/style.html',
+				templateUrl: 'app/pages/page.html',
 				controller: 'PagesController',
 				controllerAs: 'pages',
 				data: {
-					pageTitle: "Un style de vie, un dessin - Nathalie Odiot"
+					pageTitle: "Un style de vie, un dessin - Nathalie Odiot",
+					pageCtt:"app/pages/style.html",
+					imgs:"style"
 				}
 			}).state('philo2', {
 				url: '/concept-realisation',
-				templateUrl: 'app/pages/concept.html',
+				templateUrl: 'app/pages/page.html',
 				controller: 'PagesController',
 				controllerAs: 'pages',
 				data: {
-					pageTitle: "Du concept à la réalisation - Nathalie Odiot"
+					pageTitle: "Du concept à la réalisation - Nathalie Odiot",
+					pageCtt:"app/pages/concept.html",
+					imgs:"concept"
 				}
 			}).state('philo3', {
 				url: '/petits-espaces',
-				templateUrl: 'app/pages/petits-espaces.html',
+				templateUrl: 'app/pages/page.html',
 				controller: 'PagesController',
 				controllerAs: 'pages',
 				data: {
-					pageTitle: "Travail des petits espaces - Nathalie Odiot"
+					pageTitle: "Travail des petits espaces - Nathalie Odiot",
+					pageCtt:"app/pages/petits-espaces.html",
+					imgs:"petits"
 				}
 			}).state('philo4', {
 				url: '/materiaux-artisans',
-				templateUrl: 'app/pages/materiaux.html',
+				templateUrl: 'app/pages/page.html',
 				controller: 'PagesController',
 				controllerAs: 'pages',
 				data: {
-					pageTitle: "Des matériaux et des artisans - Nathalie Odiot"
+					pageTitle: "Des matériaux et des artisans - Nathalie Odiot",
+					pageCtt:"app/pages/materiaux.html",
+					imgs:"artisans"
 				}
 			}).state('philo5', {
 				url: '/corps-dans-lespace',
-				templateUrl: 'app/pages/corps-espace.html',
+				templateUrl: 'app/pages/page.html',
 				controller: 'PagesController',
 				controllerAs: 'pages',
 				data: {
-					pageTitle: "Le corps dans l'espace architectural - Nathalie Odiot"
+					pageTitle: "Le corps dans l'espace architectural - Nathalie Odiot",
+					pageCtt:"app/pages/corps-espace.html",
+					imgs:"espace"
 				}
 			}).state('philo6', {
 				url: '/collaborations',
-				templateUrl: 'app/pages/collaborations.html',
+				templateUrl: 'app/pages/page.html',
 				controller: 'PagesController',
 				controllerAs: 'pages',
 				data: {
-					pageTitle: "Des collaborations d'exceptions - Nathalie Odiot"
+					pageTitle: "Des collaborations d'exceptions - Nathalie Odiot",
+					pageCtt:"app/pages/collaborations.html",
+					imgs:"collaborations"
 				}
 			});
 
